@@ -1,0 +1,153 @@
+/* Prevent adjustments of font size after orientation changes in IE on Windows Phone and in iOS.  */
+html {-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;}
+
+/*  apply a natural box layout model to all elements  */
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+/* BODY  */
+body {
+	font-family: $defaultFont;
+	font-size: 16px;
+	font-weight: $lightWeight;
+    min-width: 320px;
+}
+
+
+/* HEADER  */
+header {
+    display: grid;
+    grid-template-columns: 51px auto;
+    align-items: center;
+	padding: .5rem 2vw;
+	h1 {
+        font-size: 1.6rem;
+        font-weight: $lightWeight;
+        padding-left: .5rem;
+        color: $primaryColor;
+    }
+} // end header
+
+/* NAVIGATION STUFF GOES HERE  */
+#navWrapper {
+    background-color: $menuColor;
+}
+nav button {
+    position: relative;
+    height: 44px;
+    width: 44px;
+    background: none;
+    border: none;
+    .line {
+        position: absolute;
+        height: 2px;
+        width: 60%;
+        left: 20%;
+        background-color: white;
+        transition: all .3s ease;
+    }
+    .top {
+        top: 29%;
+    }
+    .middle {
+        top: 48%;
+    }
+    .bottom {
+        top: 67%;
+    }
+}
+#hamburgerBtn.open {
+    .top {
+        transform: rotate(45deg);
+        top: 48%;
+    }
+    .middle, .bottom {
+        transform: rotate(-45deg);
+        top: 48%;
+    }
+}
+nav {
+    ul {
+        display: none;
+        margin: 0;
+        padding: 0;
+    }
+    ul li.active a {
+        background-color: rgba(0,0,0,0.25);
+    }
+    ul li a {
+        display: block;
+        padding: .75rem 2vw;
+        font-size: 1.1rem;
+        color: white;
+        text-decoration: none;
+        border-top: 1px solid rgba(0,0,0,.5);
+    }
+    ul.open {
+        display: block;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* MAIN  */
+main {
+ 	div.storyGrid div span {
+        display: block;
+        text-align: center;
+        font-size: .75rem;
+    }
+    div.storyGrid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+
+        div.teaser, div.lead {
+            padding: .5rem 2vw;
+        }
+        div.teaser img, div.lead img {
+            width: 100%;
+        }
+        div.lead {
+            grid-column: 1 / span 2;
+        }
+    }
+} // end main
+
+
+
+/* FOOTER  */
+#footerWrapper {background-color: #1b1b1b; }
+footer {
+    div.footerGrid {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    div.footerGrid div.linkList {
+        margin: 2rem;
+    }
+    div.footerGrid div.linkList ul {
+        list-style: none;
+    }
+    div.footerGrid div.linkList ul li {
+        color: white;
+    }
+    div.footerGrid div.linkList ul li.listTitle {
+        font-weight: bold;
+        font-size: 1.5rem;
+    }
+}
